@@ -24,3 +24,4 @@ Thumbs.db
 build
 design
 node_modules
+config/secrets.js
