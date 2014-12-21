@@ -1,3 +1,4 @@
+// module dependencies
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,10 +6,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var Dropbox = require('dropbox');
+
+// routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var auth = require('./routes/auth');
+// var auth = require('./routes/auth');
 
+// config
+var secrets = require('./config/secrets')
+
+// create Express server
 var app = express();
 
 // view engine setup
@@ -26,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/auth', auth);
+// app.use('/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
