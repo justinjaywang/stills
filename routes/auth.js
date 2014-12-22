@@ -1,3 +1,18 @@
+var express = require('express');
+var router = express.Router();
+
+// GET auth page
+router.get('/', function(req, res) {
+  res.render('index', { title: 'Auth' });
+});
+
+router.get('/callback', function(req, res) {
+  // TO DO: fix this callback
+  res.location('/');
+  res.redirect('/');
+});
+
+module.exports = router;
 
 
 // var express = require('express');
